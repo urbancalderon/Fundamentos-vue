@@ -1,6 +1,7 @@
 <template>
     <h2>{{ customTitle }}</h2>
     <p>{{counter}} <sup>2</sup> = {{ squareCounter }}</p>
+    <p data-testid="counter">{{ counter }}</p>
     
     <div>
         <button @click="increase">+1</button>
@@ -35,11 +36,11 @@ export default {
         },
         //increase
         increase(){
-            this.counter = this.counter++
+            this.counter++
         },
         //decrease
         decrease(){
-            this.counter = this.counter--
+            this.counter--
         }
     },
     computed: {
@@ -48,10 +49,10 @@ export default {
         },
         customTitle() {
             //Forma más corta de hacerlo con un operador ternario 
-            return this.title ? this.title : 'Counter'
+            //return this.title ? this.title : 'Counter'
 
             // Otra forma de hacerlo
-            // return this.title || 'Counter'
+            return this.title || 'Counter'
             
             // Forma de hacerlo con un if
             /*if (this.title !== undefined ) {
